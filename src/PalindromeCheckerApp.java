@@ -3,21 +3,30 @@ public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
 
-        String original = "madam";
+        String word = "madam";
 
 
-        String reversed = "";
+        char[] characters = word.toCharArray();
+
+        int start = 0;
+        int end = characters.length - 1;
+        boolean isPalindrome = true;
 
 
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);
+        while (start < end) {
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
 
-        if (original.equals(reversed)) {
-            System.out.println("The string \"" + original + "\" is a palindrome.");
+        if (isPalindrome) {
+            System.out.println(word + " is a palindrome.");
         } else {
-            System.out.println("The string \"" + original + "\" is not a palindrome.");
+            System.out.println(word + " is not a palindrome.");
         }
     }
 }
